@@ -145,6 +145,17 @@
 	border-radius: 3px;
 }
 
+.slide-menu-toolbar-label
+{
+	display: none;
+}
+
+#close,
+.toolbar-panel-button
+{
+	font-size: 20px;
+}
+
 .slide-menu-toolbar > li.active-toolbar-button {
  	color: white;
  	text-shadow: 0 1px black;	
@@ -164,6 +175,7 @@
 	height: calc(100% - 60px);
 	overflow-y: auto;
 	color: #AAA;
+	padding: 8px;
 }
 
 .slide-menu-panel.active-menu-panel {

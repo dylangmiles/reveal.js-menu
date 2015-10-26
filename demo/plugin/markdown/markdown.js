@@ -218,6 +218,8 @@
 
 				var xhr = new XMLHttpRequest(),
 					url = section.getAttribute( 'data-markdown' );
+				
+				console.log(url);
 
 				datacharset = section.getAttribute( 'data-charset' );
 

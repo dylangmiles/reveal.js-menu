@@ -40,7 +40,13 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+				<section data-markdown="src/example.md"
+						 data-separator="^\n\n\n"
+						 data-separator-vertical="^\n\n"
+						 data-separator-notes="^Note:"
+						 data-charset="iso-8859-15">
+				</section>
+				<section data-menu-title="The Html Presentation Framework">
 					<h1>Reveal.js</h1>
 					<h3>The HTML Presentation Framework</h3>
 					<p>
@@ -375,6 +381,13 @@ Reveal.addEventListener( 'customevent', function() {
 					</p>
 				</section>
 
+				<section id="about" style="text-align: left;">
+					<h1>About</h1>
+					<p>
+						This presentation was created by Arzhan Surazakov.
+					</p>
+				</section>
+
 			</div>
 
 		</div>
@@ -407,8 +420,12 @@ Reveal.addEventListener( 'customevent', function() {
 
 				menu: {
 					side: 'right',
+					hideMissingTitles: true,
+					themes: false,
+					transitions: false,
 					custom: [
-						{ title: 'Content', icon: '<i class="fa fa-external-link">', src: 'links.html' },
+						{ title: '', icon: '<i class="fa fa-info">', src: 'about.html' },
+						{ title: '', icon: '<i class="fa fa-download">', src: 'download.html' },	
 					]
 				}
 

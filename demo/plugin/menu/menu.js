@@ -274,36 +274,34 @@ var RevealMenu = window.RevealMenu || (function(){
 			var toolbar = $('<ol class="slide-menu-toolbar"></ol>').prependTo($('.slide-menu'));
 			var buttons = 0;
 
-			$('<li data-panel="Notes" data-button="' + (buttons++) + '" class="toolbar-panel-button"><span class="slide-menu-toolbar-label">Notes</span><br/><i class="fa fa-pencil"></i></li>')
+			$('<li data-panel="Notes" data-button="' + (buttons++) + '" class="toolbar-panel-button"><i class="fa fa-pencil"></i></li>')
 				.appendTo(toolbar)
 				.addClass('active-toolbar-button')
 				.click(openPanel);
 			
-			$('<li data-panel="Slides" data-button="' + (buttons++) + '" class="toolbar-panel-button"><span class="slide-menu-toolbar-label">Slides</span><br/><i class="fa fa-list"></i></li>')
+			$('<li data-panel="Slides" data-button="' + (buttons++) + '" class="toolbar-panel-button"><i class="fa fa-list"></i></li>')
 				.appendTo(toolbar)
 				.click(openPanel);
 			
-			console.log(custom);
-
 			if (custom) {
 				custom.forEach(function(element, index, array) {
-					$('<li data-panel="Custom' + index + '" data-button="' + (buttons++) + '" class="toolbar-panel-button"><span class="slide-menu-toolbar-label">' + element.title + '</span><br/>' + element.icon + '</i></li>')
+					$('<li data-panel="Custom' + index + '" data-button="' + (buttons++) + '" class="toolbar-panel-button">' + element.icon + '</i></li>')
 						.appendTo(toolbar)
 						.click(openPanel);
 				})
 			}
 
 			if (themes) {
-				$('<li data-panel="Themes" data-button="' + (buttons++) + '" class="toolbar-panel-button"><span class="slide-menu-toolbar-label">Themes</span><br/><i class="fa fa-desktop"></i></li>')
+				$('<li data-panel="Themes" data-button="' + (buttons++) + '" class="toolbar-panel-button"><i class="fa fa-desktop"></i></li>')
 					.appendTo(toolbar)
 					.click(openPanel);
 			}
 			if (transitions) {
-				$('<li data-panel="Transitions" data-button="' + (buttons++) + '" class="toolbar-panel-button"><span class="slide-menu-toolbar-label">Transitions</span><br/><i class="fa fa-arrows-h"></i></li>')
+				$('<li data-panel="Transitions" data-button="' + (buttons++) + '" class="toolbar-panel-button"><i class="fa fa-arrows-h"></i></li>')
 					.appendTo(toolbar)
 					.click(openPanel);
 			}
-			$('<li id="close"><span class="slide-menu-toolbar-label">Close</span><br/><i class="fa fa-times"></i></li>')
+			$('<li id="close"><i class="fa fa-times"></i></li>')
 				.appendTo(toolbar)
 				.click(closeMenu);
 
@@ -317,9 +315,9 @@ var RevealMenu = window.RevealMenu || (function(){
 				if (v) link += '/' + v;
 				else v = 0;
 
-				var title = $(section).data('menu-title') ||
-					$('.menu-title', section).text() ||
-					$('h1, h2, h3, h4, h5, h6', section).text();
+				var title = $(section).data('menu-title');
+					//||	$('.menu-title', section).text() 
+					//||	$('h1, h2, h3, h4, h5, h6', section).text();
 				if (!title) {
 					if (hideMissingTitles) return '';
 					title = "Slide " + i;
@@ -446,6 +444,9 @@ var RevealMenu = window.RevealMenu || (function(){
 			if (custom) {
 				custom.forEach(function(element, index, array) {
 					var panel = $('<div data-panel="Custom' + index + '" class="slide-menu-panel slide-menu-custom-panel"></div>');
+					if (element.link) {
+						$(element).click(clicked);
+					}
 					if (element.content) {
 						$(element.content).appendTo(panel);
 					}
@@ -536,6 +537,14 @@ var RevealMenu = window.RevealMenu || (function(){
 			
 			module.toggle = toggleMenu;
 			module.isOpen = isOpen;
+			
+			
+			//Initialially open the menu
+			//setTimeout(function() {
+			//	console.log("open the menu");
+			//	openMenu()
+			//},100);
+			
 		}
 	})
 	})
