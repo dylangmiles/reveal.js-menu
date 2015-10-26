@@ -540,10 +540,10 @@ var RevealMenu = window.RevealMenu || (function(){
 			
 			
 			//Initialially open the menu
-			//setTimeout(function() {
-			//	console.log("open the menu");
-			//	openMenu()
-			//},100);
+			setTimeout(function() {
+				console.log("open the menu");
+				openMenu()
+			},100);
 			
 		}
 	})
